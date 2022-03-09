@@ -4,24 +4,24 @@ const CAPS_H1 = "CAPS ON";
 let isCaps = false;
 
 function addChar(selection) {
-  var currChars = $("#words").val();
+  var currChars = document.getElementById("words").value;
   if (selection === "bksp") {
-    $("#words").val(currChars.substring(0, currChars.length - 1));
+    document.getElementById("words").value = currChars.substring(0, currChars.length - 1);
   } else {
     if (isCaps) {
       selection = selection.toUpperCase();
       isCaps = false;
-      $("h1").html(DEFAULT_H1);
+      document.getElementsByTagName("h1").innerHTML = DEFAULT_H1;
     }
-    $("#words").val(currChars.concat(selection));
+    document.getElementById("words").value = currChars.concat(selection);
   }
 }
 function enter() {
-  var content = $("#words").val();
+  var content = document.getElementById("words").value;
   console.log(content);
-  $("#words").val("");
+  document.getElementById("words").value = "";
 }
 function caps() {
   isCaps = true;
-  $("h1").html(CAPS_H1);
+  document.getElementsByTagName("h1").innerHTML = CAPS_H1;
 }
